@@ -1,0 +1,18 @@
+{
+    "name": "Virsign.ForkLift",
+    "rootNamespace": "Virsign",
+    "references": [
+        "GUID:acef378425037534585fdf0e313bc19d",
+        "GUID:08301754b55bedc47803fe6c25b37959",
+        "GUID:245aa510b90667a4790634009d4ff24d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
