@@ -46,10 +46,12 @@ namespace Virsign
             if (transformForMoving.parent == null)
                 return;
 
-            var upDir = transformForMoving.parent.up;
-            var parentPos = transformForMoving.parent.position;
-            var gizmoMinPos = parentPos + upDir * minPos;
-            var gizmoMaxPos = parentPos + upDir * maxPos;
+            var gizmoMinPos = transformForMoving.position;
+            gizmoMinPos.y = transformForMoving.parent.position.y;
+            gizmoMinPos.y += minPos;
+            var gizmoMaxPos = transformForMoving.position;
+            gizmoMaxPos.y = transformForMoving.parent.position.y;
+            gizmoMaxPos.y += maxPos;
 
             Gizmos.color = Color.magenta;
             Gizmos.DrawSphere(gizmoMinPos, 0.1f);
