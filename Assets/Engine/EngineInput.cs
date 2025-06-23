@@ -2,7 +2,8 @@
 {
     public class EngineInput
     {
-        public EventField<bool> IsRunning = new();
+        public EventField<bool> Start = new();
+        public EventField<bool> TurnOff = new();
         public EventField<float> GasRatio = new();
     }
 }

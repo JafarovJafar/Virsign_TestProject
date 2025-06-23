@@ -2,7 +2,8 @@
     "name": "Virsign.Engine",
     "rootNamespace": "Virsign",
     "references": [
-        "GUID:245aa510b90667a4790634009d4ff24d"
+        "GUID:245aa510b90667a4790634009d4ff24d",
+        "GUID:3cf61be94bfa2444e8e1154d3cf5c6a8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

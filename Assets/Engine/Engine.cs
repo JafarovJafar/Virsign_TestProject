@@ -1,3 +1,4 @@
+using Shafir.FSM;
 using UnityEngine;
 
 namespace Virsign
@@ -6,31 +7,46 @@ namespace Virsign
     {
         public EngineInput Input => _input;
 
+        [SerializeField] private EngineStats stats;
+
         private EngineInput _input;
+
+        private TickableStateMachine _stateMachine;
+        private EngineContext _context;
+        private EngineNotStartedState _notStartedState;
+        private EngineTryingStartState _tryingStartState;
+        private EngineRunningState _runningState;
 
         public void Initialize()
         {
             _input = new EngineInput();
 
-            _input.IsRunning.OnValueChanged += OnEngineIsRunningChanged;
-            _input.GasRatio.OnValueChanged += OnGasChanged;
+            _context = new()
+            {
+                Input = _input,
+                Stats = stats,
+            };
+
+            _notStartedState = new EngineNotStartedState(_context);
+            _notStartedState.StartRequested += OnStartRequested;
+            _tryingStartState = new EngineTryingStartState(_context);
+            _tryingStartState.StartSucceeded += OnStartSucceeded;
+            _tryingStartState.StartFailed += OnStartFailed;
+            _runningState = new EngineRunningState(_context);
+            _runningState.TurnOffRequested += OnTurnOffRequested;
+
+            _stateMachine = new TickableStateMachine();
+            _stateMachine.ChangeState(_notStartedState);
         }
 
-        private void OnDestroy()
-        {
-            if (_input == null)
-                return;
+        private void OnStartRequested() => _stateMachine.ChangeState(_tryingStartState);
+        private void OnStartSucceeded() => _stateMachine.ChangeState(_runningState);
+        private void OnStartFailed() => _stateMachine.ChangeState(_notStartedState);
+        private void OnTurnOffRequested() => _stateMachine.ChangeState(_notStartedState);
 
-            _input.IsRunning.OnValueChanged -= OnEngineIsRunningChanged;
-            _input.GasRatio.OnValueChanged -= OnGasChanged;
-        }
-
-        private void OnEngineIsRunningChanged(bool newValue)
+        private void Update()
         {
-        }
-
-        private void OnGasChanged(float newValue)
-        {
+            _stateMachine.Tick();
         }
     }
 }
