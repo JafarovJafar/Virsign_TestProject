@@ -6,6 +6,7 @@ namespace Virsign
     public class Engine : MonoBehaviour
     {
         public EngineInput Input => _input;
+        public bool IsRunning => _isRunning;
 
         [SerializeField] private EngineStats stats;
 
@@ -16,6 +17,8 @@ namespace Virsign
         private EngineNotStartedState _notStartedState;
         private EngineTryingStartState _tryingStartState;
         private EngineRunningState _runningState;
+
+        private bool _isRunning;
 
         public void Initialize()
         {
@@ -40,9 +43,24 @@ namespace Virsign
         }
 
         private void OnStartRequested() => _stateMachine.ChangeState(_tryingStartState);
-        private void OnStartSucceeded() => _stateMachine.ChangeState(_runningState);
-        private void OnStartFailed() => _stateMachine.ChangeState(_notStartedState);
-        private void OnTurnOffRequested() => _stateMachine.ChangeState(_notStartedState);
+
+        private void OnStartSucceeded()
+        {
+            _stateMachine.ChangeState(_runningState);
+            _isRunning = true;
+        }
+
+        private void OnStartFailed()
+        {
+            _stateMachine.ChangeState(_notStartedState);
+            _isRunning = false;
+        }
+
+        private void OnTurnOffRequested()
+        {
+            _stateMachine.ChangeState(_notStartedState);
+            _isRunning = false;
+        }
 
         private void Update()
         {

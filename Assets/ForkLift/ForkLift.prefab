@@ -102,6 +102,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8169252634314303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2398069727345421510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3921234427388414416}
+  - component: {fileID: 4171090551262566311}
+  m_Layer: 0
+  m_Name: EngineAdapter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3921234427388414416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398069727345421510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8169252634314303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4171090551262566311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398069727345421510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5247caf8186b04d82ea063a281b6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gasMultiplier: 500
 --- !u!1 &3853947684254450766
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +185,7 @@ Transform:
   - {fileID: 6924924623472443458}
   - {fileID: 8049159989838730708}
   - {fileID: 5843421635134897836}
+  - {fileID: 3921234427388414416}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8698440480453319440
@@ -164,8 +210,8 @@ MonoBehaviour:
   brWheel: {fileID: 4028939117151639761}
   flWheel: {fileID: 823760676026734588}
   frWheel: {fileID: 6348024619641520875}
-  torqueValue: 100
   steeringAngle: 45
+  engineAdapter: {fileID: 4171090551262566311}
 --- !u!54 &1296803166302818095
 Rigidbody:
   m_ObjectHideFlags: 0
