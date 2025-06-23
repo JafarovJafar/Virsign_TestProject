@@ -1,6 +1,6 @@
 using System;
 
-namespace Virsign.EventField
+namespace Virsign
 {
     public class EventField<T>
     {
