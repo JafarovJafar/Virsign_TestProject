@@ -206,6 +206,7 @@ MonoBehaviour:
   fuelTank: {fileID: 8741662615571358965}
   fork: {fileID: 4206951592370542739}
   forkMoveDelta: 1
+  brakeStrength: 10000
   blWheel: {fileID: 4840851369713052642}
   brWheel: {fileID: 4028939117151639761}
   flWheel: {fileID: 823760676026734588}

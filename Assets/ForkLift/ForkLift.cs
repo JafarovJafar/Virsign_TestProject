@@ -13,6 +13,7 @@ namespace Virsign
         [SerializeField] private FuelTank fuelTank;
         [SerializeField] private Fork fork;
         [SerializeField] private float forkMoveDelta = 1f;
+        [SerializeField] private float brakeStrength = 10000f;
         [SerializeField] private WheelCollider blWheel;
         [SerializeField] private WheelCollider brWheel;
         [SerializeField] private WheelCollider flWheel;
@@ -38,6 +39,7 @@ namespace Virsign
         {
             SetGasStart();
             SetGas();
+            SetBrakes();
             SetSteering();
             SetForkHeight();
         }
@@ -53,6 +55,17 @@ namespace Virsign
             engineAdapter.SetGas(_input.Gas.GetValue());
         }
 
+        private void SetBrakes()
+        {
+            var finalBrake = _input.Brake.GetValue();
+            finalBrake *= brakeStrength;
+
+            blWheel.brakeTorque = finalBrake;
+            brWheel.brakeTorque = finalBrake;
+            flWheel.brakeTorque = finalBrake;
+            frWheel.brakeTorque = finalBrake;
+        }
+
         private void SetSteering()
         {
             var steering = _input.Steering.GetValue();
@@ -65,10 +78,11 @@ namespace Virsign
 
         private void SetForkHeight()
         {
-            if (_input.ForkUp.GetValue() == true)
-                fork.AddDelta(forkMoveDelta * Time.deltaTime);
-            else if (_input.ForkDown.GetValue() == true)
-                fork.AddDelta(-forkMoveDelta * Time.deltaTime);
+            var finalForkDelta = _input.ForkHeightDelta.GetValue();
+            finalForkDelta *= forkMoveDelta;
+            finalForkDelta *= Time.deltaTime;
+
+            fork.AddDelta(finalForkDelta);
         }
     }
 }

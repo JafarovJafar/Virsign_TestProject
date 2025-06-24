@@ -6,7 +6,11 @@ namespace Virsign
     internal class EngineStats : ScriptableObject
     {
         public float TimeForStart => timeForStart;
+        public float MaxRpm => maxRpm;
+        public float Acceleration => acceleration;
 
         [SerializeField] private float timeForStart = 2f;
+        [SerializeField] private float maxRpm = 1000f;
+        [SerializeField] private float acceleration = 250f;
     }
 }

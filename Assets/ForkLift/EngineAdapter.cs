@@ -24,7 +24,7 @@ namespace Virsign
 
         private void Update()
         {
-            if (_engine.IsRunning == false)
+            if (_engine.IsRunning.GetValue() == false)
                 return;
 
             foreach (var wheel in _wheels)
