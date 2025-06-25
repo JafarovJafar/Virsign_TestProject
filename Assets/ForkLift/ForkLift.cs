@@ -16,6 +16,7 @@ namespace Virsign
         [SerializeField] private SteeringSystem steeringSystem;
         [SerializeField] private Fork fork;
         [SerializeField] private float forkMoveDelta = 1f;
+        [SerializeField] private ExhaustSystem exhaustSystem;
 
         private ForkLiftInput _input;
 
@@ -34,6 +35,7 @@ namespace Virsign
             fuelTank.Initialize();
             transmission.Initialize(engine);
             fork.Initialize();
+            exhaustSystem.Initialize(engine);
         }
 
         private void OnSteeringChanged(float steering)
