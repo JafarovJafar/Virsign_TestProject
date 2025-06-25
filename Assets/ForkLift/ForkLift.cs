@@ -19,12 +19,14 @@ namespace Virsign
 
         private ForkLiftInput _input;
 
+        [SerializeField] private float gas;
+        [SerializeField] private float reverse;
+
         public void Initialize()
         {
             mainRigidbody.centerOfMass = centerOfMass.localPosition;
 
             _input = new();
-            _input.Gas.OnValueChanged += OnGasChanged;
             _input.Steering.OnValueChanged += OnSteeringChanged;
             _input.Brake.OnValueChanged += OnBrakeChanged;
 
@@ -34,11 +36,6 @@ namespace Virsign
             fork.Initialize();
         }
 
-        private void OnGasChanged(float gasRatio)
-        {
-            engine.Input.GasRatio.SetValue(gasRatio);
-        }
-        
         private void OnSteeringChanged(float steering)
         {
             steeringSystem.SetSteering(steering);
@@ -52,13 +49,24 @@ namespace Virsign
         private void Update()
         {
             SetGasStart();
+            SetGas();
             SetForkHeight();
+
+            gas = _input.Gas.GetValue();
+            reverse = _input.Reverse.GetValue();
         }
 
         private void SetGasStart()
         {
             var isIgnitionPressed = _input.IsIgnitionPressed.GetValue();
             engine.Input.Start.SetValue(isIgnitionPressed);
+        }
+
+        private void SetGas()
+        {
+            var finalGasRatio = -_input.Reverse.GetValue();
+            finalGasRatio += _input.Gas.GetValue();
+            engine.Input.GasRatio.SetValue(finalGasRatio);
         }
 
         private void SetForkHeight()
