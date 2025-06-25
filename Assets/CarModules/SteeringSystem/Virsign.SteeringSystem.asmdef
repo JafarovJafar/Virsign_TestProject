@@ -1,6 +1,6 @@
 {
-    "name": "Virsign.EventField",
-    "rootNamespace": "Virsign.EventField",
+    "name": "Virsign.SteeringSystem",
+    "rootNamespace": "Virsign",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

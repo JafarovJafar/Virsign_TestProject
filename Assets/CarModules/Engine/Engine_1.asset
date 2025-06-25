@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Engine_1
   m_EditorClassIdentifier: 
   timeForStart: 2
+  maxRpm: 5000
+  minRpm: -250
+  acceleration: 2500
+  deceleration: 10000

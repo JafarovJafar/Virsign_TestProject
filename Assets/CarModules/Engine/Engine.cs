@@ -8,6 +8,8 @@ namespace Virsign
         public EngineInput Input => _input;
         public EventField<bool> IsRunning => _isRunning;
         public EventField<float> CurrentRpm => _currentRpm;
+        public float MinRpm => stats.MinRpm;
+        public float MaxRpm => stats.MaxRpm;
 
         [SerializeField] private EngineStats stats;
 
@@ -33,6 +35,8 @@ namespace Virsign
             {
                 Input = _input,
                 Stats = stats,
+                CurrentRpm = _currentRpm,
+                IsRunning = _isRunning,
             };
 
             _notStartedState = new EngineNotStartedState(_context);
@@ -55,19 +59,16 @@ namespace Virsign
         private void OnStartSucceeded()
         {
             _stateMachine.ChangeState(_runningState);
-            _isRunning.SetValue(true);
         }
 
         private void OnStartFailed()
         {
             _stateMachine.ChangeState(_notStartedState);
-            _isRunning.SetValue(false);
         }
 
         private void OnTurnOffRequested()
         {
             _stateMachine.ChangeState(_notStartedState);
-            _isRunning.SetValue(false);
         }
 
         private void Update()

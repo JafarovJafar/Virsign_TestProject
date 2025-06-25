@@ -11,15 +11,11 @@ namespace Virsign
 
         [SerializeField] private Engine engine;
         [SerializeField] private FuelTank fuelTank;
+        [SerializeField] private Transmission transmission;
+        [SerializeField] private BrakeSystem brakeSystem;
+        [SerializeField] private SteeringSystem steeringSystem;
         [SerializeField] private Fork fork;
         [SerializeField] private float forkMoveDelta = 1f;
-        [SerializeField] private float brakeStrength = 10000f;
-        [SerializeField] private WheelCollider blWheel;
-        [SerializeField] private WheelCollider brWheel;
-        [SerializeField] private WheelCollider flWheel;
-        [SerializeField] private WheelCollider frWheel;
-        [SerializeField] private float steeringAngle = 45f;
-        [SerializeField] private EngineAdapter engineAdapter;
 
         private ForkLiftInput _input;
 
@@ -28,19 +24,34 @@ namespace Virsign
             mainRigidbody.centerOfMass = centerOfMass.localPosition;
 
             _input = new();
+            _input.Gas.OnValueChanged += OnGasChanged;
+            _input.Steering.OnValueChanged += OnSteeringChanged;
+            _input.Brake.OnValueChanged += OnBrakeChanged;
 
             engine.Initialize();
             fuelTank.Initialize();
+            transmission.Initialize(engine);
             fork.Initialize();
-            engineAdapter.Initialize(engine, blWheel, brWheel, flWheel, frWheel);
+        }
+
+        private void OnGasChanged(float gasRatio)
+        {
+            engine.Input.GasRatio.SetValue(gasRatio);
+        }
+        
+        private void OnSteeringChanged(float steering)
+        {
+            steeringSystem.SetSteering(steering);
+        }
+
+        private void OnBrakeChanged(float brakesStrength)
+        {
+            brakeSystem.SetStrength(brakesStrength);
         }
 
         private void Update()
         {
             SetGasStart();
-            SetGas();
-            SetBrakes();
-            SetSteering();
             SetForkHeight();
         }
 
@@ -48,32 +59,6 @@ namespace Virsign
         {
             var isIgnitionPressed = _input.IsIgnitionPressed.GetValue();
             engine.Input.Start.SetValue(isIgnitionPressed);
-        }
-
-        private void SetGas()
-        {
-            engineAdapter.SetGas(_input.Gas.GetValue());
-        }
-
-        private void SetBrakes()
-        {
-            var finalBrake = _input.Brake.GetValue();
-            finalBrake *= brakeStrength;
-
-            blWheel.brakeTorque = finalBrake;
-            brWheel.brakeTorque = finalBrake;
-            flWheel.brakeTorque = finalBrake;
-            frWheel.brakeTorque = finalBrake;
-        }
-
-        private void SetSteering()
-        {
-            var steering = _input.Steering.GetValue();
-            steering *= Mathf.Abs(steeringAngle);
-            steering *= -1f;
-
-            blWheel.steerAngle = steering;
-            brWheel.steerAngle = steering;
         }
 
         private void SetForkHeight()

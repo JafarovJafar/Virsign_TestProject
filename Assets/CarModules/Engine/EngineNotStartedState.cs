@@ -16,7 +16,8 @@ namespace Virsign
 
         public void Enter()
         {
-
+            _context.IsRunning.SetValue(false);
+            _context.CurrentRpm.SetValue(0f);
         }
 
         public void Tick()
