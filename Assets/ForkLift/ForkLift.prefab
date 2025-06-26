@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 775975079556734406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7, y: 1.061, z: -2.85}
+  m_LocalPosition: {x: -0.85, y: 0.95, z: -1.425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ WheelCollider:
   m_GameObject: {fileID: 775975079556734406}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.89
+  m_Radius: 0.445
   m_SuspensionSpring:
     spring: 10000
     damper: 1000
@@ -221,8 +221,6 @@ MonoBehaviour:
   fork: {fileID: 4206951592370542739}
   forkMoveDelta: 1
   exhaustSystem: {fileID: 853456628590388604}
-  gas: 0
-  reverse: 0
 --- !u!54 &1296803166302818095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -269,8 +267,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.1971054, y: 6.91936, z: 8.642673}
-  m_Center: {x: 0, y: 4.0285635, z: -0.05256796}
+  m_Size: {x: 2, y: 3.5, z: 4.3}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &5071136459074883149
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 5071136459074883149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7, y: 1.061, z: -2.85}
+  m_LocalPosition: {x: 0.85, y: 0.95, z: -1.425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -312,7 +310,7 @@ WheelCollider:
   m_GameObject: {fileID: 5071136459074883149}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.89
+  m_Radius: 0.445
   m_SuspensionSpring:
     spring: 10000
     damper: 1000
@@ -456,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 7240044337289520823}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7, y: 1.3200002, z: 2.95}
+  m_LocalPosition: {x: -0.85, y: 1.1, z: 1.475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,7 +469,7 @@ WheelCollider:
   m_GameObject: {fileID: 7240044337289520823}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.16
+  m_Radius: 0.58
   m_SuspensionSpring:
     spring: 10000
     damper: 1000
@@ -548,7 +546,7 @@ MonoBehaviour:
   transformForMoving: {fileID: 4849508099698828135}
   drawGizmos: 1
   minPos: -1.45
-  maxPos: 4
+  maxPos: 2
 --- !u!1 &8496145725210499760
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +573,7 @@ Transform:
   m_GameObject: {fileID: 8496145725210499760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7, y: 1.32, z: 2.95}
+  m_LocalPosition: {x: 0.85, y: 1.1, z: 1.475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -590,7 +588,7 @@ WheelCollider:
   m_GameObject: {fileID: 8496145725210499760}
   serializedVersion: 2
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 1.16
+  m_Radius: 0.58
   m_SuspensionSpring:
     spring: 10000
     damper: 1000
@@ -880,6 +878,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 8169252634314303}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a7205e16d9b1add42b82e6cc5f0f685f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a7205e16d9b1add42b82e6cc5f0f685f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a7205e16d9b1add42b82e6cc5f0f685f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a7205e16d9b1add42b82e6cc5f0f685f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1082,15 +1092,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876397236359984799, guid: 9cb8d0dabee5bd7469ba4d990cfb76b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.21
+      value: 0.605
       objectReference: {fileID: 0}
     - target: {fileID: 8876397236359984799, guid: 9cb8d0dabee5bd7469ba4d990cfb76b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8876397236359984799, guid: 9cb8d0dabee5bd7469ba4d990cfb76b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.67
+      value: -1.835
       objectReference: {fileID: 0}
     - target: {fileID: 8876397236359984799, guid: 9cb8d0dabee5bd7469ba4d990cfb76b5, type: 3}
       propertyPath: m_LocalRotation.w
