@@ -6,5 +6,6 @@
         public ForkLift ForkLift;
         public ForkLiftKeyboardInputAdapter InputAdapter;
         public LoadingScreen LoadingScreen;
+        public GameplayCamera Camera;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Shafir.FSM;
+using UnityEngine;
 
 namespace Virsign
 {
@@ -16,7 +17,11 @@ namespace Virsign
 
         public void Enter()
         {
+            _context.ForkLift.transform.position = Vector3.zero;
+            _context.ForkLift.Activate();
+
             _context.LoadingScreen.Hide(OnHideFinished);
+            _context.Camera.SetTarget(_context.ForkLift.transform);
         }
 
         public void Exit()

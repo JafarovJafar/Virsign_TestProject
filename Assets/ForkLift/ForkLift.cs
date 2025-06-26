@@ -1,10 +1,12 @@
+using Shafir.MonoPool;
 using UnityEngine;
 
 namespace Virsign
 {
-    public class ForkLift : MonoBehaviour
+    public class ForkLift : MonoBehaviour, IPoolable
     {
         public ForkLiftInput Input => _input;
+        public bool IsActive => gameObject.activeSelf;
 
         [SerializeField] private Rigidbody mainRigidbody;
         [SerializeField] private Transform centerOfMass;
@@ -20,10 +22,37 @@ namespace Virsign
 
         private ForkLiftInput _input;
 
-        [SerializeField] private float gas;
-        [SerializeField] private float reverse;
+        private bool _isInitialized;
 
-        public void Initialize()
+        private void Awake()
+        {
+            if (_isInitialized == true)
+            {
+                return;
+            }
+
+            Initialize();
+        }
+
+        public void Activate()
+        {
+            if (_isInitialized == false)
+            {
+                Initialize();
+            }
+
+            _input.Clear();
+            gameObject.SetActive(true);
+            // тут например еще можно сделать переходы в дефолтное состояние
+            // сейчас просто тут нет машины состояний
+        }
+
+        public void DeActivate()
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void Initialize()
         {
             mainRigidbody.centerOfMass = centerOfMass.localPosition;
 
@@ -36,6 +65,8 @@ namespace Virsign
             transmission.Initialize(engine);
             fork.Initialize();
             exhaustSystem.Initialize(engine);
+
+            _isInitialized = true;
         }
 
         private void OnSteeringChanged(float steering)
@@ -53,9 +84,6 @@ namespace Virsign
             SetGasStart();
             SetGas();
             SetForkHeight();
-
-            gas = _input.Gas.Value;
-            reverse = _input.Reverse.Value;
         }
 
         private void SetGasStart()

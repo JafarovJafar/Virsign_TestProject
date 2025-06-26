@@ -16,12 +16,13 @@ namespace Virsign
 
         public void Enter()
         {
+            _context.InputAdapter.SetForkLift(_context.ForkLift);
             _context.InputAdapter.Activate();
         }
 
         public void Exit()
         {
-
+            _context.InputAdapter.DeActivate();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Virsign
         [SerializeField] private ForkLift forkLift;
         [SerializeField] private ForkLiftKeyboardInputAdapter inputAdapter;
         [SerializeField] private LoadingScreen loadingScreen;
+        [SerializeField] private GameplayCamera gameplayCamera;
 
         public override void InstallBindings()
         {
@@ -15,6 +16,8 @@ namespace Virsign
             Container.BindInstance(inputAdapter);
 
             Container.BindInstance(loadingScreen);
+
+            Container.BindInstance(gameplayCamera);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Virsign
         [Inject] private ForkLift _forkLift;
         [Inject] private ForkLiftKeyboardInputAdapter _inputAdapter;
         [Inject] private LoadingScreen _loadingScreen;
+        [Inject] private GameplayCamera _camera;
 
         private SimpleStateMachine _stateMachine;
         private GameplayContext _context;
@@ -34,6 +35,7 @@ namespace Virsign
                 ForkLift = _forkLift,
                 InputAdapter = _inputAdapter,
                 LoadingScreen = _loadingScreen,
+                Camera = _camera,
             };
 
             _loadLevelState = new(_context);
