@@ -61,6 +61,7 @@ namespace Virsign
             };
 
             _appearState = new(_context);
+            _appearState.Finished += OnAppearStateFinished;
             _normalState = new(_context);
             _disappearState = new(_context);
 
@@ -73,6 +74,11 @@ namespace Virsign
         {
             _context.GoalPos = pos;
             _stateMachine.ChangeState(_appearState);
+        }
+
+        private void OnAppearStateFinished()
+        {
+            _stateMachine.ChangeState(_normalState);
         }
 
 #if UNITY_EDITOR

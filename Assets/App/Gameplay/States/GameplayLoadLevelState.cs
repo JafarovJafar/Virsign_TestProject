@@ -21,6 +21,7 @@ namespace Virsign
             _isLevelLoad = false;
             _context.EventBus.Subscribe<PlayerSpawnPointAppeared>(OnPlayerSpawnPointAppeared);
             _context.EventBus.Subscribe<CubesSpawnPointAppeared>(OnGoalPointAppeared);
+            _context.EventBus.Subscribe<CubesCollectorAppeared>(OnCubesCollectorAppeared);
 
             _context.SceneLoader.LoadSceneAdditive(2, null, OnLoadFinished);
         }
@@ -29,6 +30,7 @@ namespace Virsign
         {
             _context.EventBus.UnSubscribe<PlayerSpawnPointAppeared>(OnPlayerSpawnPointAppeared);
             _context.EventBus.UnSubscribe<CubesSpawnPointAppeared>(OnGoalPointAppeared);
+            _context.EventBus.UnSubscribe<CubesCollectorAppeared>(OnCubesCollectorAppeared);
         }
 
         private void OnPlayerSpawnPointAppeared(PlayerSpawnPointAppeared message)
@@ -39,6 +41,11 @@ namespace Virsign
         private void OnGoalPointAppeared(CubesSpawnPointAppeared message)
         {
             _context.CubesSpawnPoint = message.Point;
+        }
+
+        private void OnCubesCollectorAppeared(CubesCollectorAppeared message)
+        {
+            _context.CubesCollector = message.Collector;
         }
 
         private void OnLoadFinished()
@@ -56,6 +63,9 @@ namespace Virsign
                 return;
 
             if (_context.CubesSpawnPoint == null)
+                return;
+
+            if (_context.CubesCollector == null)
                 return;
 
             Finished?.Invoke();

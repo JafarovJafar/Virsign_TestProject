@@ -13,7 +13,11 @@ namespace Virsign
 
         public void Enter()
         {
-
+            _context.Rigidbody.isKinematic = false;
+            foreach (var collider in _context.Colliders)
+            {
+                collider.enabled = true;
+            }
         }
 
         public void Exit()

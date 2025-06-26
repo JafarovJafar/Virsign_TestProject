@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Shafir.FSM;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Virsign
 {
     public class CubikAppearState : IState
     {
+        public event Action Finished;
+
         private CubikContext _context;
 
         private Sequence _sequence;
@@ -36,6 +39,7 @@ namespace Virsign
             _sequence.Append(_context.Transform.DOMove(_context.GoalPos, _duration));
             var goalRot = new Vector3(0f, 360f, 0f);
             _sequence.Insert(0f, _context.Transform.DORotate(goalRot, _duration, RotateMode.FastBeyond360));
+            _sequence.OnComplete(() => Finished?.Invoke());
         }
 
         public void Exit()

@@ -13,5 +13,6 @@ namespace Virsign
 
         public PlayerSpawnPoint PlayerSpawnPoint;
         public CubesSpawnPoint CubesSpawnPoint;
+        public CubesCollector CubesCollector;
     }
 }

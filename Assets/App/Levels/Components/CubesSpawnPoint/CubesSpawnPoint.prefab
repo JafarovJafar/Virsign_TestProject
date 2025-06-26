@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8843382571927884268}
   - component: {fileID: -3102668988586517261}
   m_Layer: 0
-  m_Name: GoalPoint
+  m_Name: CubesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
