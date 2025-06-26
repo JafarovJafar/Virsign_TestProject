@@ -235,6 +235,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3102668988586517261, guid: 0e1fe1d000d727a42a1a2953f8223488, type: 3}
+      propertyPath: spawnDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3102668988586517261, guid: 0e1fe1d000d727a42a1a2953f8223488, type: 3}
+      propertyPath: spawnDatas.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 8512976061509517422, guid: 1de19db8ff687784f81bc9ea734d88b5, type: 3}
     - target: {fileID: 4866710485338334569, guid: 0e1fe1d000d727a42a1a2953f8223488, type: 3}
       propertyPath: m_Name
       value: GoalPoint
@@ -404,10 +412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cubik
       objectReference: {fileID: 0}
-    - target: {fileID: 7026772340609672200, guid: 1de19db8ff687784f81bc9ea734d88b5, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: bcf4306d6a520e14eac7b54baf9411f7, type: 2}
     - target: {fileID: 8347982110111005319, guid: 1de19db8ff687784f81bc9ea734d88b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17

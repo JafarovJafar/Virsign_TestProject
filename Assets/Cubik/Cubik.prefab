@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8347982110111005319}
+  - component: {fileID: 8512976061509517422}
   - component: {fileID: 8486145730133459833}
   m_Layer: 0
   m_Name: Cubik
@@ -41,6 +42,19 @@ Transform:
   - {fileID: 7445218613599925532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8512976061509517422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637150394063588307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da98011c43e302e4ab49f2542be60441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliders: []
 --- !u!54 &8486145730133459833
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ namespace Virsign
 {
     public class CubikAppearState : IState
     {
+        
+        
         public void Enter()
         {
 
