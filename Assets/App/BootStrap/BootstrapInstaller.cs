@@ -11,7 +11,7 @@ namespace Virsign
         public override void InstallBindings()
         {
             Container.BindInstance(sceneLoader);
-            Container.BindInterfacesAndSelfTo<ShafirEventBus>();
+            Container.BindInterfacesAndSelfTo<ShafirEventBus>().AsSingle();
         }
     }
 }

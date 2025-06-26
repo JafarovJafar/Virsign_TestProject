@@ -1,3 +1,4 @@
+using Shafir.EventBus;
 using Shafir.FSM;
 using UnityEngine;
 using Zenject;
@@ -11,6 +12,7 @@ namespace Virsign
         [Inject] private ForkLiftKeyboardInputAdapter _inputAdapter;
         [Inject] private LoadingScreen _loadingScreen;
         [Inject] private GameplayCamera _camera;
+        [Inject] private ShafirEventBus _eventBus;
 
         private SimpleStateMachine _stateMachine;
         private GameplayContext _context;
@@ -36,6 +38,7 @@ namespace Virsign
                 InputAdapter = _inputAdapter,
                 LoadingScreen = _loadingScreen,
                 Camera = _camera,
+                EventBus = _eventBus,
             };
 
             _loadLevelState = new(_context);

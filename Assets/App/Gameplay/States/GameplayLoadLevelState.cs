@@ -9,6 +9,8 @@ namespace Virsign
 
         private GameplayContext _context;
 
+        private bool _isLevelLoad;
+
         public GameplayLoadLevelState(GameplayContext context)
         {
             _context = context;
@@ -16,16 +18,46 @@ namespace Virsign
 
         public void Enter()
         {
+            _isLevelLoad = false;
+            _context.EventBus.Subscribe<PlayerSpawnPointAppeared>(OnPlayerSpawnPointAppeared);
+            _context.EventBus.Subscribe<GoalPointAppeared>(OnGoalPointAppeared);
+
             _context.SceneLoader.LoadSceneAdditive(2, null, OnLoadFinished);
         }
 
         public void Exit()
         {
+            _context.EventBus.UnSubscribe<PlayerSpawnPointAppeared>(OnPlayerSpawnPointAppeared);
+            _context.EventBus.UnSubscribe<GoalPointAppeared>(OnGoalPointAppeared);
+        }
 
+        private void OnPlayerSpawnPointAppeared(PlayerSpawnPointAppeared message)
+        {
+            _context.PlayerSpawnPoint = message.Point;
+        }
+
+        private void OnGoalPointAppeared(GoalPointAppeared message)
+        {
+            _context.GoalPoint = message.Point;
         }
 
         private void OnLoadFinished()
         {
+            _isLevelLoad = true;
+            CheckIfIsFinished();
+        }
+
+        private void CheckIfIsFinished()
+        {
+            if (_isLevelLoad == false)
+                return;
+
+            if (_context.PlayerSpawnPoint == null)
+                return;
+
+            if (_context.GoalPoint == null)
+                return;
+
             Finished?.Invoke();
         }
     }

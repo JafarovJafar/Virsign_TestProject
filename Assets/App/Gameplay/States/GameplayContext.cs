@@ -1,4 +1,6 @@
-﻿namespace Virsign
+﻿using Shafir.EventBus;
+
+namespace Virsign
 {
     public class GameplayContext
     {
@@ -7,5 +9,9 @@
         public ForkLiftKeyboardInputAdapter InputAdapter;
         public LoadingScreen LoadingScreen;
         public GameplayCamera Camera;
+        public ShafirEventBus EventBus;
+
+        public PlayerSpawnPoint PlayerSpawnPoint;
+        public GoalPoint GoalPoint;
     }
 }

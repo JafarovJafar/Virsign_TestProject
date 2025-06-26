@@ -26,6 +26,7 @@ namespace Virsign
 
         private void OnShowFinished()
         {
+            _context.SceneLoader.UnLoadScene(2);
             Finished?.Invoke();
         }
     }
