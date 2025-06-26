@@ -3,6 +3,7 @@
     "com.shafir.fsm": "https://github.com/JafarovJafar/shafir-fsm.git",
     "com.shafir.monopool": "https://github.com/JafarovJafar/Shafir-MonoPool.git",
 	"jaf.shafir.event-bus": "https://github.com/JafarovJafar/shafir-eventbus.git",
+	"com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
     "com.unity.ide.rider": "3.0.36",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.render-pipelines.universal": "17.0.3",
