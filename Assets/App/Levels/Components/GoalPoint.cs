@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Shafir.EventBus;
+using Shafir.MonoPool;
 using UnityEngine;
 using Zenject;
 
@@ -17,16 +18,29 @@ namespace Virsign
         private void Start()
         {
             _eventBus.Publish(new GoalPointAppeared(this));
+
+            foreach (var spawnData in spawnDatas)
+            {
+                var cubik = ShafirMonoPool.Get(spawnData.Prefab);
+                var finalPos = transform.position + spawnData.GoalPos;
+                cubik.AppearTo(finalPos);
+            }
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.magenta;
-            
+
+            if (spawnDatas == null)
+                return;
+
             foreach (var spawnData in spawnDatas)
             {
                 var bounds = spawnData.Prefab.Bounds;
-                Gizmos.DrawCube(bounds.center + spawnData.GoalPos, bounds.size);
+                var finalPos = transform.position;
+                finalPos += bounds.center;
+                finalPos += spawnData.GoalPos;
+                Gizmos.DrawWireCube(finalPos, bounds.size);
             }
         }
     }
