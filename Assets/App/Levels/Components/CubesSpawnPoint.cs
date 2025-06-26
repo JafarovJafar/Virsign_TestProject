@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Virsign
 {
-    public class GoalPoint : MonoBehaviour
+    public class CubesSpawnPoint : MonoBehaviour
     {
         public IReadOnlyList<SpawnData> SpawnData => spawnDatas;
 
@@ -17,7 +17,7 @@ namespace Virsign
 
         private void Start()
         {
-            _eventBus.Publish(new GoalPointAppeared(this));
+            _eventBus.Publish(new CubesSpawnPointAppeared(this));
 
             foreach (var spawnData in spawnDatas)
             {

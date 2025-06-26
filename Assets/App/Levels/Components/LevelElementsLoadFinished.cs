@@ -3,12 +3,12 @@
     public class LevelElementsLoadFinished
     {
         public readonly PlayerSpawnPoint PlayerSpawnPoint;
-        public readonly GoalPoint GoalPoint;
+        public readonly CubesSpawnPoint CubesSpawnPoint;
 
-        public LevelElementsLoadFinished(PlayerSpawnPoint playerSpawnPoint, GoalPoint goalPoint)
+        public LevelElementsLoadFinished(PlayerSpawnPoint playerSpawnPoint, CubesSpawnPoint cubesSpawnPoint)
         {
             PlayerSpawnPoint = playerSpawnPoint;
-            GoalPoint = goalPoint;
+            CubesSpawnPoint = cubesSpawnPoint;
         }
     }
 }

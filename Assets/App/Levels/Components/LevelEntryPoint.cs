@@ -9,12 +9,12 @@ namespace Virsign
         [Inject] private ShafirEventBus _eventBus;
 
         private PlayerSpawnPoint _playerSpawnPoint;
-        private GoalPoint _goalPoint;
+        private CubesSpawnPoint _cubesSpawnPoint;
 
         private void Awake()
         {
             _eventBus.Subscribe<PlayerSpawnPointAppeared>(OnPlayerSpawnPointAppeared);
-            _eventBus.Subscribe<GoalPointAppeared>(OnGoalPointAppeared);
+            _eventBus.Subscribe<CubesSpawnPointAppeared>(OnGoalPointAppeared);
         }
 
         private void OnPlayerSpawnPointAppeared(PlayerSpawnPointAppeared message)
@@ -23,9 +23,9 @@ namespace Virsign
             CheckIfIsFinished();
         }
 
-        private void OnGoalPointAppeared(GoalPointAppeared message)
+        private void OnGoalPointAppeared(CubesSpawnPointAppeared message)
         {
-            _goalPoint = message.Point;
+            _cubesSpawnPoint = message.Point;
             CheckIfIsFinished();
         }
 
@@ -34,10 +34,10 @@ namespace Virsign
             if (_playerSpawnPoint == null)
                 return;
 
-            if (_goalPoint == null)
+            if (_cubesSpawnPoint == null)
                 return;
 
-            var message = new LevelElementsLoadFinished(_playerSpawnPoint, _goalPoint);
+            var message = new LevelElementsLoadFinished(_playerSpawnPoint, _cubesSpawnPoint);
             _eventBus.Publish(message);
         }
     }

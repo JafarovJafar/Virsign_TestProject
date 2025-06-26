@@ -12,6 +12,6 @@ namespace Virsign
         public ShafirEventBus EventBus;
 
         public PlayerSpawnPoint PlayerSpawnPoint;
-        public GoalPoint GoalPoint;
+        public CubesSpawnPoint CubesSpawnPoint;
     }
 }
