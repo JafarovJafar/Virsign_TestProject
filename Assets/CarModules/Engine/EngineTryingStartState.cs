@@ -25,7 +25,7 @@ namespace Virsign
 
         public void Tick()
         {
-            if (_context.Input.Start.GetValue() == false)
+            if (_context.Input.Start.Value == false)
                 StartFailed?.Invoke();
 
             _remainingTime -= Time.deltaTime;

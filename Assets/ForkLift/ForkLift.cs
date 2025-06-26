@@ -54,26 +54,26 @@ namespace Virsign
             SetGas();
             SetForkHeight();
 
-            gas = _input.Gas.GetValue();
-            reverse = _input.Reverse.GetValue();
+            gas = _input.Gas.Value;
+            reverse = _input.Reverse.Value;
         }
 
         private void SetGasStart()
         {
-            var isIgnitionPressed = _input.IsIgnitionPressed.GetValue();
+            var isIgnitionPressed = _input.IsIgnitionPressed.Value;
             engine.Input.Start.SetValue(isIgnitionPressed);
         }
 
         private void SetGas()
         {
-            var finalGasRatio = -_input.Reverse.GetValue();
-            finalGasRatio += _input.Gas.GetValue();
+            var finalGasRatio = -_input.Reverse.Value;
+            finalGasRatio += _input.Gas.Value;
             engine.Input.GasRatio.SetValue(finalGasRatio);
         }
 
         private void SetForkHeight()
         {
-            var finalForkDelta = _input.ForkHeightDelta.GetValue();
+            var finalForkDelta = _input.ForkHeightDelta.Value;
             finalForkDelta *= forkMoveDelta;
             finalForkDelta *= Time.deltaTime;
 

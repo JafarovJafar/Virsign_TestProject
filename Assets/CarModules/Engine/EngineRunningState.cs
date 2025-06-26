@@ -22,14 +22,14 @@ namespace Virsign
 
         public void Tick()
         {
-            if (_context.Input.TurnOff.GetValue() == true)
+            if (_context.Input.TurnOff.Value == true)
             {
                 TurnOffRequested?.Invoke();
                 return;
             }
 
-            var currentRpm = _context.CurrentRpm.GetValue();
-            var gasRatio = _context.Input.GasRatio.GetValue();
+            var currentRpm = _context.CurrentRpm.Value;
+            var gasRatio = _context.Input.GasRatio.Value;
 
             if (Mathf.Approximately(gasRatio, 0f))
             {

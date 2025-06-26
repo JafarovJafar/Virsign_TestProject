@@ -22,7 +22,7 @@ namespace Virsign
 
         public void Tick()
         {
-            if (_context.Input.Start.GetValue() == false)
+            if (_context.Input.Start.Value == false)
                 return;
 
             StartRequested?.Invoke();

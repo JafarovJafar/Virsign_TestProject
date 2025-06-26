@@ -12,7 +12,7 @@ namespace Virsign
         public void Initialize(Engine engine)
         {
             _engine = engine;
-            UpdateWheelsRpm(_engine.CurrentRpm.GetValue());
+            UpdateWheelsRpm(_engine.CurrentRpm.Value);
             _engine.CurrentRpm.OnValueChanged += UpdateWheelsRpm;
         }
 
