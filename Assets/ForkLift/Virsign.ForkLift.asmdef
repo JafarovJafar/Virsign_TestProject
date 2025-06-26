@@ -2,6 +2,7 @@
     "name": "Virsign.ForkLift",
     "rootNamespace": "Virsign",
     "references": [
+        "GUID:bad7abec20652630eb0318bcf6432840",
         "GUID:245aa510b90667a4790634009d4ff24d",
         "GUID:acef378425037534585fdf0e313bc19d",
         "GUID:08301754b55bedc47803fe6c25b37959",
