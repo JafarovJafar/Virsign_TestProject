@@ -164,6 +164,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "jaf.shafir.event-bus": {
+      "version": "https://github.com/JafarovJafar/shafir-eventbus.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "891635c68160e8fe2bbb59b4576e73dba7319e9b"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,

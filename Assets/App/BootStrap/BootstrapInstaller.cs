@@ -1,3 +1,4 @@
+using Shafir.EventBus;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +10,8 @@ namespace Virsign
 
         public override void InstallBindings()
         {
-            Debug.LogError(111);
             Container.BindInstance(sceneLoader);
+            Container.BindInterfacesAndSelfTo<ShafirEventBus>();
         }
     }
 }
