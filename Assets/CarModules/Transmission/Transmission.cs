@@ -13,7 +13,7 @@ namespace Virsign
         {
             _engine = engine;
             UpdateWheelsRpm(_engine.CurrentRpm.Value);
-            _engine.CurrentRpm.OnValueChanged += UpdateWheelsRpm;
+            _engine.CurrentRpm.ValueChanged += UpdateWheelsRpm;
         }
 
         private void UpdateWheelsRpm(float engineRpm)

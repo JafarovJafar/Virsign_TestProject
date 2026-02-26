@@ -57,8 +57,8 @@ namespace Virsign
             mainRigidbody.centerOfMass = centerOfMass.localPosition;
 
             _input = new();
-            _input.Steering.OnValueChanged += OnSteeringChanged;
-            _input.Brake.OnValueChanged += OnBrakeChanged;
+            _input.Steering.ValueChanged += OnSteeringChanged;
+            _input.Brake.ValueChanged += OnBrakeChanged;
 
             engine.Initialize();
             fuelTank.Initialize();

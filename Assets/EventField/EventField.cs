@@ -4,7 +4,7 @@ namespace Virsign
 {
     public class EventField<T>
     {
-        public event Action<T> OnValueChanged;
+        public event Action<T> ValueChanged;
 
         public T Value => _value;
 
@@ -23,7 +23,7 @@ namespace Virsign
             }
 
             _value = newValue;
-            OnValueChanged?.Invoke(_value);
+            ValueChanged?.Invoke(_value);
         }
     }
 }
