@@ -11,7 +11,7 @@ namespace Virsign
         public void Initialize(Engine engine)
         {
             _engine = engine;
-            _engine.IsRunning.OnValueChanged += OnEngineIsRunningChanged;
+            _engine.IsRunning.ValueChanged += OnEngineIsRunningChanged;
         }
 
         private void OnEngineIsRunningChanged(bool isEngineRunning)
