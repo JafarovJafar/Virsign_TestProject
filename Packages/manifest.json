@@ -1,13 +1,13 @@
 {
   "dependencies": {
+    "com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
     "com.shafir.fsm": "https://github.com/JafarovJafar/shafir-fsm.git",
     "com.shafir.monopool": "https://github.com/JafarovJafar/Shafir-MonoPool.git",
-	"jaf.shafir.event-bus": "https://github.com/JafarovJafar/shafir-eventbus.git",
-	"com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
-    "com.unity.ide.rider": "3.0.36",
-    "com.unity.inputsystem": "1.11.2",
-    "com.unity.render-pipelines.universal": "17.0.3",
+    "com.unity.ide.rider": "3.0.39",
+    "com.unity.inputsystem": "1.14.2",
+    "com.unity.render-pipelines.universal": "17.2.0",
     "com.unity.ugui": "2.0.0",
+    "jaf.shafir.event-bus": "https://github.com/JafarovJafar/shafir-eventbus.git",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
