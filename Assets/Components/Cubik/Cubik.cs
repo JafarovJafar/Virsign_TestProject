@@ -29,6 +29,7 @@ namespace Virsign
 
         [SerializeField] private Collider[] colliders;
         [SerializeField] private Rigidbody rigidbody;
+        [SerializeField] private Transform centerOfMass;
 
         private CubikContext _context;
         private CubikAppearState _appearState;
@@ -68,6 +69,8 @@ namespace Virsign
             _stateMachine = new(Debug.LogError);
 
             _isInitialized = true;
+
+            rigidbody.centerOfMass = centerOfMass.localPosition;
         }
 
         public void AppearTo(Vector3 pos)
