@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/App/BootStrap/BootStrapScene.unity
+    path: Assets/App/Scenes/BootStrapScene.unity
     guid: 7d36231e8af4c7d478d991b5ff77a6ae
   - enabled: 1
-    path: Assets/App/Gameplay/GameplayScene.unity
+    path: Assets/App/Scenes/GameplayScene.unity
     guid: 1c9916fe193cd6c46b631f5c5cc98ec3
   - enabled: 1
-    path: Assets/App/Levels/Level_1.unity
+    path: Assets/App/Scenes/Level_1.unity
     guid: 62840f4f98abd1449b1156ecfbd3c620
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

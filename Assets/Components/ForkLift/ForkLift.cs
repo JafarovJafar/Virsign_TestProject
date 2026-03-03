@@ -13,7 +13,6 @@ namespace Virsign
 
         [SerializeField] private Engine engine;
         [SerializeField] private FuelTank fuelTank;
-        [SerializeField] private Transmission transmission;
         [SerializeField] private BrakeSystem brakeSystem;
         [SerializeField] private SteeringSystem steeringSystem;
         [SerializeField] private Fork fork;
@@ -62,7 +61,6 @@ namespace Virsign
 
             engine.Initialize();
             fuelTank.Initialize();
-            transmission.Initialize(engine);
             fork.Initialize();
             exhaustSystem.Initialize(engine);
 
