@@ -12,7 +12,6 @@ namespace Virsign
         public float MaxRpm => stats.MaxRpm;
 
         [SerializeField] private EngineStats stats;
-        [SerializeField] private WheelCollider[] wheels;
 
         private EventField<bool> _isRunning;
         private EventField<float> _currentRpm;
@@ -38,7 +37,6 @@ namespace Virsign
                 Stats = stats,
                 CurrentRpm = _currentRpm,
                 IsRunning = _isRunning,
-                Wheels = wheels,
             };
 
             _notStartedState = new EngineNotStartedState(_context);

@@ -1,0 +1,17 @@
+{
+    "name": "Virsign.Transmission",
+    "rootNamespace": "Virsign",
+    "references": [
+        "GUID:245aa510b90667a4790634009d4ff24d",
+        "GUID:acef378425037534585fdf0e313bc19d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
