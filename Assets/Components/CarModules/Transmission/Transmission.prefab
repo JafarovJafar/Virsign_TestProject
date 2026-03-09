@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheels: []
-  rpmMultiplier: 0.1
+  rpmMultiplier: 0.5
