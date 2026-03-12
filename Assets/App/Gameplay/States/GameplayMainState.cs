@@ -1,6 +1,5 @@
 ﻿using System;
 using Shafir.FSM;
-using UnityEngine;
 
 namespace Virsign
 {
@@ -35,10 +34,8 @@ namespace Virsign
         private void OnCaughtCubik(Cubik cubik)
         {
             cubik.FlyAway();
-            
-            _counter--;
 
-            Debug.LogError($"new counter = {_counter}");
+            _counter--;
 
             if (_counter > 0)
                 return;

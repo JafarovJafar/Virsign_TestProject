@@ -17,7 +17,8 @@ namespace Virsign
 
         public void Enter()
         {
-            Debug.LogError("entered WON STATE");
+            Debug.LogError("ФИНИШ!!!");
+            _context.LoadingScreen.Show();
         }
 
         public void Exit()
