@@ -47,10 +47,17 @@ namespace Virsign
             gameObject.SetActive(true);
         }
 
-        public void DeActivate()
-        {
+        public void DeActivate() =>
             gameObject.SetActive(false);
+
+        public void AppearTo(Vector3 pos)
+        {
+            _context.GoalPos = pos;
+            _stateMachine.ChangeState(_appearState);
         }
+
+        public void FlyAway() =>
+            _stateMachine.ChangeState(_disappearState);
 
         private void Initialize()
         {
@@ -73,16 +80,8 @@ namespace Virsign
             rigidbody.centerOfMass = centerOfMass.localPosition;
         }
 
-        public void AppearTo(Vector3 pos)
-        {
-            _context.GoalPos = pos;
-            _stateMachine.ChangeState(_appearState);
-        }
-
-        private void OnAppearStateFinished()
-        {
+        private void OnAppearStateFinished() =>
             _stateMachine.ChangeState(_normalState);
-        }
 
 #if UNITY_EDITOR
         [Button]

@@ -36,10 +36,6 @@ namespace Virsign
                 var delta = _context.Stats.Deceleration * Time.deltaTime;
                 currentRpm = Mathf.MoveTowards(currentRpm, 0f, delta);
                 _context.CurrentRpm.SetValue(currentRpm);
-
-                foreach (var wheel in _context.Wheels)
-                    wheel.motorTorque = 0f;
-
                 return;
             }
 
@@ -49,9 +45,6 @@ namespace Virsign
             currentRpm += finalDelta;
             currentRpm = Mathf.Clamp(currentRpm, _context.Stats.MinRpm, _context.Stats.MaxRpm);
             _context.CurrentRpm.SetValue(currentRpm);
-
-            foreach (var wheel in _context.Wheels)
-                wheel.motorTorque = currentRpm;
         }
 
         public void Exit()

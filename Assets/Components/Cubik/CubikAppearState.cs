@@ -11,9 +11,12 @@ namespace Virsign
 
         private CubikContext _context;
 
-        private Sequence _sequence;
-        private float _duration = 5f;
-        private float _heightOffset = 100f; // оффсет к целевой позиции, чтобы кубик появился как бы извне камеры
+        // оффсет к целевой позиции, чтобы кубик появился как бы извне камеры
+        // (это точно должно настраиваться, но в рамках ТЗ норм)
+        private float _heightOffset = 100f;
+
+        // (это точно должно настраиваться, но в рамках ТЗ норм)
+        private const float Duration = 5f;
 
         public CubikAppearState(CubikContext context)
         {
@@ -28,18 +31,16 @@ namespace Virsign
                 collider.enabled = false;
             }
 
-            var duration = 5f;
-
             var startPos = _context.GoalPos;
             startPos.y += _heightOffset;
             _context.Transform.position = startPos;
             _context.Transform.rotation = Quaternion.identity;
 
-            _sequence = DOTween.Sequence();
-            _sequence.Append(_context.Transform.DOMove(_context.GoalPos, _duration));
+            var sequence = DOTween.Sequence();
+            sequence.Append(_context.Transform.DOMove(_context.GoalPos, Duration));
             var goalRot = new Vector3(0f, 360f, 0f);
-            _sequence.Insert(0f, _context.Transform.DORotate(goalRot, _duration, RotateMode.FastBeyond360));
-            _sequence.OnComplete(() => Finished?.Invoke());
+            sequence.Insert(0f, _context.Transform.DORotate(goalRot, Duration, RotateMode.FastBeyond360));
+            sequence.OnComplete(() => Finished?.Invoke());
         }
 
         public void Exit()

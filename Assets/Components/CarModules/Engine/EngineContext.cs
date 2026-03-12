@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Virsign
+﻿namespace Virsign
 {
     internal class EngineContext
     {
@@ -8,6 +6,5 @@ namespace Virsign
         public EngineStats Stats;
         public EventField<bool> IsRunning;
         public EventField<float> CurrentRpm;
-        public WheelCollider[] Wheels;
     }
 }

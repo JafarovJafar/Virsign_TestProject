@@ -1,5 +1,6 @@
 ﻿using System;
 using Shafir.FSM;
+using UnityEngine;
 
 namespace Virsign
 {
@@ -16,7 +17,8 @@ namespace Virsign
 
         public void Enter()
         {
-
+            Debug.LogError("ФИНИШ!!!");
+            _context.LoadingScreen.Show();
         }
 
         public void Exit()
