@@ -4,7 +4,7 @@ namespace Virsign.Utilities
 {
     public class Retargeter : MonoBehaviour
     {
-        public GameObject Target => Target;
+        public GameObject Target => target;
 
         [SerializeField] private GameObject target;
     }

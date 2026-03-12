@@ -8,12 +8,12 @@ namespace Virsign
     public class CubikDisappearState : IState
     {
         public event Action Finished;
-        
+
         private CubikContext _context;
 
         // оффсет к целевой позиции, чтобы кубик появился как бы извне камеры
         // (это точно должно настраиваться, но в рамках ТЗ норм)
-        private float _heightOffset = 100f;
+        private float _heightOffset = 50f;
 
         // (это точно должно настраиваться, но в рамках ТЗ норм)
         private const float Duration = 5f;
@@ -31,13 +31,11 @@ namespace Virsign
                 collider.enabled = false;
             }
 
-            var startPos = _context.GoalPos;
-            startPos.y += _heightOffset;
-            _context.Transform.position = startPos;
-            _context.Transform.rotation = Quaternion.identity;
+            var goalPos = _context.Transform.position;
+            goalPos.y += _heightOffset;
 
             var sequence = DOTween.Sequence();
-            sequence.Append(_context.Transform.DOMove(_context.GoalPos, Duration));
+            sequence.Append(_context.Transform.DOMove(goalPos, Duration));
             var goalRot = new Vector3(0f, 360f, 0f);
             sequence.Insert(0f, _context.Transform.DORotate(goalRot, Duration, RotateMode.FastBeyond360));
             sequence.OnComplete(() => Finished?.Invoke());

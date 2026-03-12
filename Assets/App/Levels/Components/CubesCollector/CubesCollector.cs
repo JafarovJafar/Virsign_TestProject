@@ -1,6 +1,7 @@
 using System;
 using Shafir.EventBus;
 using UnityEngine;
+using Virsign.Utilities;
 using Zenject;
 
 namespace Virsign
@@ -27,10 +28,8 @@ namespace Virsign
 
         private void OnTriggerEntered(Collider collider)
         {
-            if (collider.TryGetComponent(out Cubik cubik) == false)
-            {
+            if (ComponentSearcher.TryGetComponent(collider.gameObject, out Cubik cubik) == false)
                 return;
-            }
 
             CaughtCubik?.Invoke(cubik);
         }

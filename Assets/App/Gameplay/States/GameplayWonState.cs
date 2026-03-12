@@ -1,5 +1,6 @@
 ﻿using System;
 using Shafir.FSM;
+using UnityEngine;
 
 namespace Virsign
 {
@@ -16,7 +17,7 @@ namespace Virsign
 
         public void Enter()
         {
-
+            Debug.LogError("entered WON STATE");
         }
 
         public void Exit()
